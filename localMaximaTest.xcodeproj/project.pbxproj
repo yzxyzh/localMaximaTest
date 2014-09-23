@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B9E342019AC991E00274197 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E341F19AC991E00274197 /* main.cpp */; };
-		0B9E342219AC991E00274197 /* localMaximaTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B9E342119AC991E00274197 /* localMaximaTest.1 */; };
+		0B9E342A19AC994400274197 /* LocalMaximaFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E342819AC994400274197 /* LocalMaximaFinder.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +18,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				0B9E342219AC991E00274197 /* localMaximaTest.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -27,7 +26,8 @@
 /* Begin PBXFileReference section */
 		0B9E341C19AC991D00274197 /* localMaximaTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = localMaximaTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9E341F19AC991E00274197 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		0B9E342119AC991E00274197 /* localMaximaTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = localMaximaTest.1; sourceTree = "<group>"; };
+		0B9E342819AC994400274197 /* LocalMaximaFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocalMaximaFinder.cpp; sourceTree = "<group>"; };
+		0B9E342919AC994400274197 /* LocalMaximaFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalMaximaFinder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +44,8 @@
 		0B9E341319AC991D00274197 = {
 			isa = PBXGroup;
 			children = (
+				0B9E342819AC994400274197 /* LocalMaximaFinder.cpp */,
+				0B9E342919AC994400274197 /* LocalMaximaFinder.h */,
 				0B9E341E19AC991D00274197 /* localMaximaTest */,
 				0B9E341D19AC991D00274197 /* Products */,
 			);
@@ -61,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				0B9E341F19AC991E00274197 /* main.cpp */,
-				0B9E342119AC991E00274197 /* localMaximaTest.1 */,
 			);
 			path = localMaximaTest;
 			sourceTree = "<group>";
@@ -117,6 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B9E342A19AC994400274197 /* LocalMaximaFinder.cpp in Sources */,
 				0B9E342019AC991E00274197 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,8 +157,19 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lopencv_imgproc",
+					"-lopencv_highgui",
+					"-lopencv_core",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -187,7 +200,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_LDFLAGS = (
+					"-lopencv_imgproc",
+					"-lopencv_highgui",
+					"-lopencv_core",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
